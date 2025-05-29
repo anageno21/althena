@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f2f1f0;
+  --foreground: #143B64; /* Κύριο χρώμα για κείμενα και τίτλους σε ανοιχτό background */
+  --foreground-alt: #ffffff; /* Εναλλακτικό χρώμα για σκούρο background */
+  --foreground-special: #4a6875; /* Ειδικό χρώμα για συγκεκριμένες περιπτώσεις */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #081a2e;
+    --foreground: #ffffff; /* Σε dark mode, τα κείμενα και οι τίτλοι θα είναι λευκά */
+    --foreground-alt: #143B64;
+    --foreground-special: #4a6875;
+  }
+}
+
+html, body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Playfair Display', serif;
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--foreground);
+}
+
+/* Ειδικές περιπτώσεις για το #4a6875 */
+.special-text {
+  color: var(--foreground-special);
+}
+
+/* Χρώματα για συγκεκριμένα backgrounds */
+[style*="background-color: #f2f1f0"],
+[style*="background-color: rgba(237, 191, 171, 0.2)"],
+[style*="background-color: rgba(255, 255, 255, 0.5)"],
+[style*="background-color: rgba(255, 255, 255, 0.7)"] {
+  color: var(--foreground); /* #143B64 για ανοιχτά backgrounds */
+}
+
+[style*="background-color: #081a2e"],
+[style*="background-color: #143B64"],
+[style*="background-color: rgba(142, 181, 186, 1)"],
+[style*="background-color: rgba(91, 125, 140, 1)"],
+[style*="background-color: rgba(20, 59, 100, 1)"] {
+  color: var(--foreground-alt); /* #ffffff για σκούρα backgrounds */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
