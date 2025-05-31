@@ -5,7 +5,6 @@ import BookingForm from './BookingForm';
 import { expertsData } from '@/data/expertsData';
 
 const ViktoriiaContent3: React.FC = () => {
-  // Βρες τη Βικτώρια Κοτένκο από το expertsData
   const viktoriia = expertsData.find((expert) => expert.name === "Виктория Котенко") || {
     id: 1,
     name: "Виктория Котенко",
@@ -16,54 +15,33 @@ const ViktoriiaContent3: React.FC = () => {
     },
   };
 
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const modalVideoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLIFrameElement>(null);
+  const modalVideoRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
+    setIsPlaying(!isPlaying);
   };
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
+    setIsMuted(!isMuted);
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
-    if (videoRef.current) {
-      videoRef.current.volume = newVolume;
-      setVolume(newVolume);
-      setIsMuted(newVolume === 0);
-    }
+    setVolume(newVolume);
+    setIsMuted(newVolume === 0);
   };
 
   const openModal = () => {
     setIsModalOpen(true);
-    // Συνεχίζουμε την αναπαραγωγή στο modal αν το βίντεο παίζει
-    if (isPlaying && modalVideoRef.current) {
-      modalVideoRef.current.play();
-    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    // Παύουμε την αναπαραγωγή στο modal
-    if (modalVideoRef.current) {
-      modalVideoRef.current.pause();
-    }
   };
 
   return (
@@ -85,13 +63,15 @@ const ViktoriiaContent3: React.FC = () => {
         </div>
         {/* Πλαίσιο 2 (20%) - Βίντεο, στρογγύλεμα σε όλες τις γωνίες */}
         <div className="bg-gray-100 p-0 rounded-lg relative overflow-hidden">
-          <video
+          <iframe
             ref={videoRef}
-            src="/videos/VK/vkIntro.mp4"
+            src="https://drive.google.com/file/d/1X7iWWNG1plTqXqOgviaYD_RNwoHsEOrV/preview"
+            title="VK Intro Video"
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
             className="w-full h-full object-cover"
-            loop
-            playsInline
-          />
+          ></iframe>
           <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-2 bg-black bg-opacity-50">
             <button
               onClick={togglePlay}
@@ -158,14 +138,15 @@ const ViktoriiaContent3: React.FC = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
           <div className="relative w-[90%] max-w-[560px] aspect-[9/16] bg-black rounded-lg overflow-hidden">
-            <video
+            <iframe
               ref={modalVideoRef}
-              src="/videos/VK/vkIntro.mp4"
+              src="https://drive.google.com/file/d/1X7iWWNG1plTqXqOgviaYD_RNwoHsEOrV/preview"
+              title="VK Intro Video"
+              frameBorder="0"
+              allow="autoplay; fullscreen"
+              allowFullScreen
               className="w-full h-full object-contain"
-              loop
-              playsInline
-              controls
-            />
+            ></iframe>
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-white hover:text-gray-300 focus:outline-none"

@@ -13,17 +13,14 @@ const NewHeroSlider: React.FC<NewHeroSliderProps> = ({ contentType, src, title, 
   return (
     <div className="relative w-full h-[600px] sm:h-[400px] md:h-[534px] lg:h-[700px] aspect-[16/9] box-border">
       {contentType === 'video' ? (
-        <video
-          autoPlay
-          muted
-          playsInline
-          loop
+        <iframe
+          src="https://drive.google.com/file/d/1a_FIuv9ZVCEeYTdd9mIdfUJUZ37RQhUy/preview"
+          title="Hero Video"
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+          allowFullScreen
           className="w-full h-full object-cover"
-        >
-          <source src="/videos/hero-video-1.mp4" type="video/mp4" media="(max-width: 640px)" />
-          <source src={src} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        ></iframe>
       ) : (
         <img
           src={src}
