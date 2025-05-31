@@ -15,10 +15,9 @@ const bookingSchema = z.object({
 type BookingFormData = z.infer<typeof bookingSchema>;
 
 interface BookingFormProps {
-  expertName: string;
-  availability: { [date: string]: string[] };
-  backgroundColor?: string;
-  expertId: number;
+  expertName?: string; // Προαιρετικό με το `?`
+  availability?: string[]; // Προαιρετικό
+  expertId?: string | number; // Προαιρετικό
 }
 
 const BookingForm: React.FC<BookingFormProps> = ({ expertName, availability, backgroundColor = "rgba(237,191,171,0.2)", expertId }) => {
