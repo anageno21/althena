@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex-shrink-0 mb-4">
               <Image
-                src="/images/logo/logorgb.png"
+                src="/images/logo/Logorgb.png"
                 alt="Althéna"
                 width={240}
                 height={51.2}
