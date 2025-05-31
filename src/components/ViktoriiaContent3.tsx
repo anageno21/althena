@@ -46,7 +46,7 @@ const ViktoriiaContent3: React.FC = () => {
         {/* Πλαίσιο 2 (20%) - Βίντεο, στρογγύλεμα σε όλες τις γωνίες */}
         <div className="bg-gray-100 p-0 rounded-lg relative overflow-hidden">
           <iframe
-            src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM"
+            src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0"
             title="VK Intro Video"
             frameBorder="0"
             allow="autoplay; fullscreen"
