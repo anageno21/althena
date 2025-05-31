@@ -20,7 +20,7 @@ const NewHeroSlider: React.FC<NewHeroSliderProps> = ({ contentType, src, title, 
           loop
           className="w-full h-full object-cover"
         >
-          <source src="/videos/hero-video-1-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+          <source src="/videos/hero-video-1.mp4" type="video/mp4" media="(max-width: 640px)" />
           <source src={src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
