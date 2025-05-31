@@ -5,7 +5,7 @@ export default function IntroGridSection() {
   return (
     <div className="max-w-full mt-[8px]">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-[8px]">
-        {/* Πλαίσιο 1 - Χωρίς στρογγυλεμένες γωνίες στην αριστερή πλευρά */}
+        {/* Πλαίσιο 1 */}
         <div
           className="w-full min-h-[300px] xs:min-h-[320px] sm:min-h-[280px] md:min-h-[374px] lg:min-h-[450px] bg-[rgba(237,191,171,0.2)] rounded-lg rounded-l-none flex flex-col items-center justify-center text-center text-[#143B64] font-playfair px-4 xs:px-6 sm:px-8"
         >
@@ -18,7 +18,7 @@ export default function IntroGridSection() {
             методы и инструменты Althéna не давят — они мягко направляют и сопровождают тебя с уважением на твоём собственном пути.
           </p>
         </div>
-        {/* Πλαίσιο 2 - Διατηρεί στρογγυλεμένες γωνίες */}
+        {/* Πλαίσιο 2 */}
         <div
           className="w-full min-h-[300px] xs:min-h-[320px] sm:min-h-[280px] md:min-h-[374px] lg:min-h-[450px] bg-[rgba(237,191,171,0.2)] rounded-lg flex flex-col items-center justify-center text-center text-[#143B64] font-playfair px-4 xs:px-6 sm:px-8"
         >
@@ -34,7 +34,7 @@ export default function IntroGridSection() {
             Как вы того заслуживаете
           </p>
         </div>
-        {/* Πλαίσιο 3 - Χωρίς στρογγυλεμένες γωνίες στη δεξιά πλευρά */}
+        {/* Πλαίσιο 3 */}
         <div
           className="w-full min-h-[300px] xs:min-h-[320px] sm:min-h-[280px] md:min-h-[374px] lg:min-h-[450px] bg-[rgba(237,191,171,0.2)] rounded-lg rounded-r-none flex flex-col items-center justify-center text-center text-[#143B64] font-playfair px-4 xs:px-6 sm:px-8"
         >

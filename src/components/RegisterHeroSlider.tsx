@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 interface RegisterHeroSliderProps {
   src: string;
@@ -14,10 +15,12 @@ const RegisterHeroSlider: React.FC<RegisterHeroSliderProps> = ({ src, title, tex
     <div className="relative !w-full h-[540px] sm:h-[360px] md:h-[481px] lg:h-[630px] box-border flex flex-col sm:flex-row gap-[8px] mx-0 px-0">
       {/* Αριστερή στήλη - 40% - Στρογγυλοποίηση δεξιών γωνιών */}
       <div className="relative w-full sm:w-[40%] h-[270px] sm:h-full rounded-tr-[8px] rounded-br-[8px]">
-        <img
+        <Image
           src={src}
           alt="Register Hero Slider Image Left"
-          className="w-full h-full object-cover rounded-tr-[8px] rounded-br-[8px]"
+          fill
+          className="object-cover rounded-tr-[8px] rounded-br-[8px]"
+          sizes="(max-width: 768px) 100vw, 40vw"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-15 z-[5] rounded-tr-[8px] rounded-br-[8px]"></div>

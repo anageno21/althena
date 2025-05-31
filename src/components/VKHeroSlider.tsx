@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Slide {
   src?: string;
@@ -24,10 +25,12 @@ const VKHeroSlider: React.FC<VKHeroSliderProps> = ({ slide1, slide2 }) => {
       <div className="w-full sm:w-[35%] rounded-tl-[8px] rounded-bl-[8px] rounded-tr-lg rounded-br-lg overflow-hidden min-h-[200px] relative group">
         {slide1?.src ? (
           <>
-            <img
+            <Image
               src={slide1.src}
               alt={slide1.alt || "Slide 1"}
-              className="w-full h-full object-cover transform scale-[1.7] object-right"
+              fill
+              className="object-cover transform scale-[1.7] object-right"
+              sizes="(max-width: 768px) 100vw, 35vw"
             />
             <div className="absolute top-1/2 -translate-y-1/2 w-full max-w-[520px] mx-auto left-0 right-0 !text-[#143B64] text-center z-[6] px-4 xs:px-6 sm:px-8 flex flex-col items-center justify-center opacity-100">
               {slide1.title && (
@@ -60,10 +63,12 @@ const VKHeroSlider: React.FC<VKHeroSliderProps> = ({ slide1, slide2 }) => {
       {/* Πλαίσιο 2 (Δεξί, 65%) */}
       <div className="w-full sm:w-[65%] rounded-tr-[8px] rounded-br-[8px] rounded-tl-lg rounded-bl-lg h-auto bg-[#f2f1f0] flex flex-col overflow-visible">
         {slide2?.src ? (
-          <img
+          <Image
             src={slide2.src}
             alt="Slide 2"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 65vw"
           />
         ) : slide2?.content ? (
           <div className="relative w-full max-w-full !text-[#143B64] text-left z-[6] pl-4 xs:pl-6 sm:pl-8 pr-12 xs:pr-14 sm:pr-16 pt-40 pb-8 flex flex-col items-start justify-start">

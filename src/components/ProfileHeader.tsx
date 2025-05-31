@@ -2,6 +2,7 @@
 
 import React, { forwardRef, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { expertsData } from '@/data/expertsData';
 
 // Use forwardRef to allow ref forwarding
@@ -28,18 +29,6 @@ const ProfileHeader = forwardRef<HTMLElement, { setMenuOpen?: (open: boolean) =>
       setIsLanguageOpen(false);
     };
 
-    const toggleExperts = () => {
-      setIsExpertsOpen(!isExpertsOpen);
-      setIsServicesOpen(false);
-      setIsLanguageOpen(false);
-    };
-
-    const toggleLanguage = () => {
-      setIsLanguageOpen(!isLanguageOpen);
-      setIsServicesOpen(false);
-      setIsExpertsOpen(false);
-    };
-
     const selectLanguage = (language: string) => {
       setSelectedLanguage(language);
       setIsLanguageOpen(false);
@@ -61,10 +50,12 @@ const ProfileHeader = forwardRef<HTMLElement, { setMenuOpen?: (open: boolean) =>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo - Ευθυγράμμιση αριστερά με το ίδιο padding όπως στο footer */}
           <Link href="/" className="flex-shrink-0">
-            <img
+            <Image
               src="/images/logo/logorgb.png"
               alt="Althéna"
-              className="h-[25.6px] xs:h-8 sm:h-[38.4px] md:h-[44.8px] lg:h-[51.2px] max-w-[120px] xs:max-w-[160px] sm:max-w-[200px] lg:max-w-[240px] object-contain aspect-auto"
+              width={240} // Προσαρμοσμένες διαστάσεις για να ταιριάζουν με το max-w-[240px]
+              height={51} // Υπολογισμένο ύψος για να διατηρηθεί η αναλογία
+              className="h-[25.6px] xs:h-8 sm:h-[38.4px] md:h-[44.8px] lg:h-[51.2px] max-w-[120px] xs:max-w-[160px] sm:max-w-[200px] lg:max-w-[240px] object-contain"
             />
           </Link>
 

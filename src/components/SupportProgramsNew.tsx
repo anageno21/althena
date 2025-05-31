@@ -1,13 +1,7 @@
-import Link from 'next/link';
-import RecommendedArticles from './RecommendedArticles';
+"use client";
 
-const therapistsData = [
-  {
-    name: "Viktoriia Kotenko",
-    photo: "/images/councillors/VK/Viktoriia Kotenko.jpg",
-    placeholderPhoto: "https://via.placeholder.com/30x30.png?text=Test",
-  },
-];
+import React from 'react';
+import RecommendedArticles from './RecommendedArticles';
 
 export default function SupportProgramsNew() {
   return (

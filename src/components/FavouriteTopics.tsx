@@ -1,8 +1,7 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
-import therapists from '../data/expertsData';
+import Image from 'next/image';
 
 const FavouriteTopics = () => {
   return (
@@ -14,10 +13,12 @@ const FavouriteTopics = () => {
         <div className="experts-container">
           <div className="group">
             <div className="expert-image-wrapper">
-              <img
+              <Image
                 src="/images/councillors/VK/viktoria.png"
                 alt="Виктория Котенко"
-                className="expert-image" // Αφαίρεση της κλάσης viktoria-image
+                fill
+                className="expert-image"
+                style={{ objectFit: 'cover' }}
               />
               <div className="expert-image-overlay"></div>
             </div>
@@ -32,10 +33,12 @@ const FavouriteTopics = () => {
           </div>
           <div className="group">
             <div className="expert-image-wrapper">
-              <img
+              <Image
                 src="/images/councillors/demo/EkaterinaIvanova.png"
                 alt="Екатерина Иванова"
+                fill
                 className="expert-image"
+                style={{ objectFit: 'cover' }}
               />
               <div className="expert-image-overlay"></div>
             </div>
@@ -50,10 +53,12 @@ const FavouriteTopics = () => {
           </div>
           <div className="group">
             <div className="expert-image-wrapper">
-              <img
+              <Image
                 src="/images/councillors/demo/AnnaPetrova.png"
                 alt="Анна Петрова"
+                fill
                 className="expert-image"
+                style={{ objectFit: 'cover' }}
               />
               <div className="expert-image-overlay"></div>
             </div>

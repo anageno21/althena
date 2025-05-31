@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const HeroSlider = ({ contentType, src, images = [], onSlideChange = () => {} }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -93,10 +94,12 @@ const HeroSlider = ({ contentType, src, images = [], onSlideChange = () => {} })
             <p className="text-center text-red-500">Failed to load image: {currentSlide.src}</p>
           ) : (
             <>
-              <img
+              <Image
                 src={currentSlide.src}
-                alt={`Hero Slider Image ${currentSlideIndex + 1}`}
-                className="w-full h-full object-cover"
+                alt={`HeroSlider Image ${currentSlideIndex + 1}`}
+                fill
+                className="object-cover"
+                style={{ objectFit: 'cover' }}
                 onError={handleImageError}
               />
               <div className="absolute inset-0 bg-gray-500/15 group-hover:bg-black/50 group-hover:shadow-md transition-all duration-300 z-[5]"></div>

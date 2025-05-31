@@ -1,12 +1,11 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import Image from 'next/image';
 import * as z from 'zod';
 
-// Σχήμα επικύρωσης για τη φόρμα εγγραφής στο newsletter
 const newsletterSchema = z.object({
   email: z.string().email('Пожалуйста, введите действительный email'),
 });
@@ -28,21 +27,22 @@ const Footer: React.FC = () => {
 
   const onSubmit = (data: NewsletterFormData) => {
     console.log('Newsletter subscription:', data);
-    // Εδώ μπορείς να προσθέσεις API κλήση για εγγραφή στο newsletter
-    reset(); // Καθαρισμός της φόρμας μετά την υποβολή
+    reset();
   };
 
   return (
     <footer className="bg-[#f2f1f0] text-[#143B64] py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Στήλη 1: Logo */}
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex-shrink-0 mb-4">
-              <img
+              <Image
                 src="/images/logo/logorgb.png"
                 alt="Althéna"
+                width={240}
+                height={51.2}
                 className="h-[25.6px] xs:h-8 sm:h-[38.4px] md:h-[44.8px] lg:h-[51.2px] max-w-[120px] xs:max-w-[160px] sm:max-w-[200px] lg:max-w-[240px] object-contain aspect-auto"
+                style={{ objectFit: 'contain' }}
               />
             </Link>
             <p className="text-sm font-playfair text-center md:text-left">
@@ -50,7 +50,6 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Στήλη 2: Χρήσιμοι Σύνδεσμοι */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-playfair font-semibold mb-4">Полезные ссылки</h3>
             <ul className="space-y-2 text-sm font-playfair">
@@ -72,7 +71,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Στήλη 3: Πολιτικές και Όροι */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-playfair font-semibold mb-4">Политики</h3>
             <ul className="space-y-2 text-sm font-playfair">
@@ -109,7 +107,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Στήλη 4: Επικοινωνία και Newsletter */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-playfair font-semibold mb-4">Контакты</h3>
             <ul className="space-y-2 text-sm font-playfair mb-4">
@@ -132,7 +129,6 @@ const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-            {/* Newsletter Subscription */}
             <div className="mt-4 w-full">
               <h3 className="text-lg font-playfair font-semibold mb-4">Подписка на рассылку</h3>
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
@@ -156,7 +152,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Copyright Section */}
         <div className="mt-8 border-t border-[#143B64]/20 pt-4 text-center">
           <p className="text-sm font-playfair">
             © 2025 Althéna. Все права защищены.

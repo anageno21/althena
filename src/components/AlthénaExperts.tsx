@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { expertsData } from '@/data/expertsData';
 
 const AlthénaExperts = () => {
@@ -14,11 +15,13 @@ const AlthénaExperts = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           {expertsData.map((expert, index) => (
             <div key={index} className="group relative">
-              <div className="relative w-full aspect-square overflow-hidden">
-                <img
+              <div className="relative w-full aspect-square overflow-hidden rounded-lg">
+                <Image
                   src={expert.image}
                   alt={expert.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                  fill
+                  className="transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                  style={{ objectFit: 'cover' }}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
               </div>

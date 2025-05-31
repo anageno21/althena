@@ -1,9 +1,8 @@
-// app/components/BlogHeroSlider.tsx
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
-// Τύποι για τα props του BlogHeroSlider
 interface BlogHeroSliderProps {
   imageSrc: string;
 }
@@ -24,14 +23,14 @@ const BlogHeroSlider: React.FC<BlogHeroSliderProps> = ({ imageSrc }) => {
         </p>
       ) : (
         <>
-          {/* Εικόνα */}
-          <img
+          <Image
             src={imageSrc}
             alt="Hero Image"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            style={{ objectFit: 'cover' }}
             onError={handleImageError}
           />
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gray-500/15 group-hover:bg-black/50 transition-all duration-300 z-[5]" />
         </>
       )}
