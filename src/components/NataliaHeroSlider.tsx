@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import NataliaContent from './NataliaContent';
 
 interface Slide {
@@ -11,6 +12,7 @@ interface Slide {
   link?: string;
   content?: React.ReactNode;
   alt?: string;
+  category?: string;
 }
 
 interface NataliaHeroSliderProps {
@@ -21,13 +23,14 @@ interface NataliaHeroSliderProps {
 const NataliaHeroSlider: React.FC<NataliaHeroSliderProps> = ({ slide1, slide2 }) => {
   return (
     <div className="relative flex flex-col sm:flex-row gap-[8px] bg-[#f2f1f0]">
-      {/* Πλαίσιο 1 (Αριστερό, 35%) */}
       <div className="w-full sm:w-[35%] rounded-tr-lg rounded-br-lg overflow-hidden min-h-[200px] relative">
         {slide1?.src ? (
-          <img
+          <Image
             src={slide1.src}
             alt={slide1.alt || "Expert Image"}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover rounded-tr-lg rounded-br-lg"
+            style={{ objectFit: 'cover' }}
           />
         ) : (
           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -35,13 +38,14 @@ const NataliaHeroSlider: React.FC<NataliaHeroSliderProps> = ({ slide1, slide2 })
           </div>
         )}
       </div>
-      {/* Πλαίσιο 2 (Δεξί, 65%) */}
       <div className="w-full sm:w-[65%] rounded-tr-[8px] rounded-br-[8px] rounded-tl-lg rounded-bl-lg h-auto bg-[#f2f1f0] flex flex-col overflow-visible">
         {slide2?.src ? (
-          <img
+          <Image
             src={slide2.src}
             alt="Slide 2"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            style={{ objectFit: 'cover' }}
           />
         ) : slide2?.content ? (
           <div className="relative w-full max-w-full !text-[#143B64] text-left z-[6] pl-4 xs:pl-6 sm:pl-8 pr-12 xs:pr-14 sm:pr-16 pt-8 pb-8 flex flex-col items-start justify-start">
