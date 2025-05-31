@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import TamaraContent from './TamaraContent';
 
 interface Slide {
@@ -10,6 +11,8 @@ interface Slide {
   text?: string;
   link?: string;
   content?: React.ReactNode;
+  alt?: string;
+  category?: string; // Προσθήκη του category
 }
 
 interface TamaraHeroSliderProps {
@@ -23,10 +26,12 @@ const TamaraHeroSlider: React.FC<TamaraHeroSliderProps> = ({ slide1, slide2 }) =
       {/* Πλαίσιο 1 (Αριστερό, 35%) */}
       <div className="w-full sm:w-[35%] rounded-tr-lg rounded-br-lg overflow-hidden min-h-[200px] relative">
         {slide1?.src ? (
-          <img
+          <Image
             src={slide1.src}
             alt="Тамара Кушина"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 35vw"
           />
         ) : (
           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -37,10 +42,12 @@ const TamaraHeroSlider: React.FC<TamaraHeroSliderProps> = ({ slide1, slide2 }) =
       {/* Πλαίσιο 2 (Δεξί, 65%) */}
       <div className="w-full sm:w-[65%] rounded-tr-[8px] rounded-br-[8px] rounded-tl-lg rounded-bl-lg h-auto bg-[#f2f1f0] flex flex-col overflow-visible">
         {slide2?.src ? (
-          <img
+          <Image
             src={slide2.src}
             alt="Slide 2"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 65vw"
           />
         ) : slide2?.content ? (
           <div className="relative w-full max-w-full !text-[#143B64] text-left z-[6] pl-4 xs:pl-6 sm:pl-8 pr-12 xs:pr-14 sm:pr-16 pt-8 pb-8 flex flex-col items-start justify-start">
