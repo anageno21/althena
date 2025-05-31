@@ -51,7 +51,7 @@ const ProfileHeader = forwardRef<HTMLElement, { setMenuOpen?: (open: boolean) =>
           {/* Logo - Ευθυγράμμιση αριστερά με το ίδιο padding όπως στο footer */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo/logorgb.png"
+              src="/images/logo/Logorgb.png"
               alt="Althéna"
               width={240} // Προσαρμοσμένες διαστάσεις για να ταιριάζουν με το max-w-[240px]
               height={51} // Υπολογισμένο ύψος για να διατηρηθεί η αναλογία
