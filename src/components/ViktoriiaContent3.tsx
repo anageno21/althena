@@ -28,7 +28,7 @@ const ViktoriiaContent3: React.FC = () => {
 
   return (
     <div className="max-w-full mx-auto pt-0 pb-8 mt-0">
-      <div className="grid grid-cols-[40%_20%_40%] gap-2">
+      <div className="grid grid-cols-[47%_15%_38%] gap-2">
         {/* Πλαίσιο 1 (40%) - Στρογγύλεμα μόνο δεξιά */}
         <div className="bg-[rgba(142,181,186,0.4)] p-4 rounded-r-lg rounded-l-0">
           <p className="text-gray-600 text-sm pt-[15px] pr-[15px] pb-[15px] pl-[85px]">
@@ -44,9 +44,9 @@ const ViktoriiaContent3: React.FC = () => {
           </p>
         </div>
         {/* Πλαίσιο 2 (20%) - Βίντεο, στρογγύλεμα σε όλες τις γωνίες */}
-        <div className="bg-gray-100 p-0 rounded-lg relative overflow-hidden">
+        <div className="bg-[#143B64] p-0 rounded-lg relative overflow-hidden aspect-[9/16]">
           <iframe
-            src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0"
+            src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&rel=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM"
             title="VK Intro Video"
             frameBorder="0"
             allow="autoplay; fullscreen"
@@ -78,10 +78,10 @@ const ViktoriiaContent3: React.FC = () => {
       {/* Modal for the video */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative w-[90%] max-w-[560px] aspect-[16/9] bg-black rounded-lg overflow-hidden">
+          <div className="relative w-[90%] max-w-[560px] aspect-[9/16] bg-[#143B64] rounded-lg overflow-hidden">
             <iframe
               ref={modalVideoRef}
-              src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM"
+              src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&rel=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM"
               title="VK Intro Video"
               frameBorder="0"
               allow="autoplay; fullscreen"
