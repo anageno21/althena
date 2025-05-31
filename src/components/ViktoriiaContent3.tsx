@@ -15,26 +15,8 @@ const ViktoriiaContent3: React.FC = () => {
     },
   };
 
-  const videoRef = useRef<HTMLIFrameElement>(null);
   const modalVideoRef = useRef<HTMLIFrameElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-  };
-
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
-  };
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    setIsMuted(newVolume === 0);
-  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -64,63 +46,22 @@ const ViktoriiaContent3: React.FC = () => {
         {/* Πλαίσιο 2 (20%) - Βίντεο, στρογγύλεμα σε όλες τις γωνίες */}
         <div className="bg-gray-100 p-0 rounded-lg relative overflow-hidden">
           <iframe
-            ref={videoRef}
-            src="https://drive.google.com/file/d/1X7iWWNG1plTqXqOgviaYD_RNwoHsEOrV/preview"
+            src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM"
             title="VK Intro Video"
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           ></iframe>
-          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-2 bg-black bg-opacity-50">
+          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-end px-4 py-2 bg-black bg-opacity-50">
             <button
-              onClick={togglePlay}
+              onClick={openModal}
               className="text-white hover:text-gray-300 focus:outline-none"
             >
-              {isPlaying ? (
-                <svg className="w-6 h-6" fill="#ffffff" viewBox="0 0 24 24">
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="#ffffff" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              )}
+              <svg className="w-6 h-6" fill="#ffffff" viewBox="0 0 24 24">
+                <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+              </svg>
             </button>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={toggleMute}
-                className="text-white hover:text-gray-300 focus:outline-none"
-              >
-                {isMuted || volume === 0 ? (
-                  <svg className="w-6 h-6" fill="#ffffff" viewBox="0 0 24 24">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z" />
-                  </svg>
-                ) : (
-                  <svg className="w-6 h-6" fill="#ffffff" viewBox="0 0 24 24">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                  </svg>
-                )}
-              </button>
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={handleVolumeChange}
-                className="w-16 h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-none"
-                style={{ accentColor: '#ffffff' }}
-              />
-              <button
-                onClick={openModal}
-                className="text-white hover:text-gray-300 focus:outline-none"
-              >
-                <svg className="w-6 h-6" fill="#ffffff" viewBox="0 0 24 24">
-                  <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
-                </svg>
-              </button>
-            </div>
           </div>
         </div>
         {/* Πλαίσιο 3 (40%) - Booking Form, στρογγύλεμα μόνο αριστερά */}
@@ -137,10 +78,10 @@ const ViktoriiaContent3: React.FC = () => {
       {/* Modal for the video */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative w-[90%] max-w-[560px] aspect-[9/16] bg-black rounded-lg overflow-hidden">
+          <div className="relative w-[90%] max-w-[560px] aspect-[16/9] bg-black rounded-lg overflow-hidden">
             <iframe
               ref={modalVideoRef}
-              src="https://drive.google.com/file/d/1X7iWWNG1plTqXqOgviaYD_RNwoHsEOrV/preview"
+              src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM"
               title="VK Intro Video"
               frameBorder="0"
               allow="autoplay; fullscreen"
