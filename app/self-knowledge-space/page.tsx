@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import SelfImprovementPromptVariant from '@/components/SelfImprovementPromptVariant';
 import ProfileHeader from '@/components/ProfileHeader';
-import Footer from '@/components/Footer'; // Εισαγωγή του Footer
+import Footer from '@/components/Footer';
 
 // Define interface for material data with url
 interface Material {
@@ -159,9 +159,8 @@ const materialsData: Material[] = [
 ];
 
 export default function SelfKnowledgeSpace() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
-    return localStorage.getItem("isLoggedIn") === "true";
-  });
+  // Αρχικοποίηση με προεπιλεγμένη τιμή, χωρίς να χρησιμοποιούμε localStorage άμεσα
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [showRegisterModal, setShowRegisterModal] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -173,6 +172,14 @@ export default function SelfKnowledgeSpace() {
   const [selectedAuthor, setSelectedAuthor] = useState<string>("");
   const [selectedPriceType, setSelectedPriceType] = useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  // Χρησιμοποίηση useEffect για ανάγνωση από το localStorage μόνο στο client-side
+  useEffect(() => {
+    const storedLoginState = localStorage.getItem("isLoggedIn");
+    if (storedLoginState === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   // Extract unique categories, subcategories, authors, and price types for filters
   const categories = useMemo(() => [...new Set(materialsData.map(item => item.category))], []);
@@ -262,7 +269,10 @@ export default function SelfKnowledgeSpace() {
     if (isValid) {
       setIsLoggedIn(true);
       setShowRegisterModal(false);
-      localStorage.setItem("isLoggedIn", "true");
+      // Χρησιμοποίηση localStorage μόνο στο client-side
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("isLoggedIn", "true");
+      }
     }
   };
 
@@ -278,7 +288,10 @@ export default function SelfKnowledgeSpace() {
     setSelectedSubcategory("");
     setSelectedAuthor("");
     setSelectedPriceType("");
-    localStorage.removeItem("isLoggedIn");
+    // Χρησιμοποίηση localStorage μόνο στο client-side
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem("isLoggedIn");
+    }
   };
 
   return (
