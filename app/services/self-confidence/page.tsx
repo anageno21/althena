@@ -28,7 +28,7 @@ export default function SelfConfidencePage() {
         <div className="w-full sm:w-1/3 relative group rounded-tr-lg rounded-br-lg overflow-hidden h-[765px] md:h-[534px] sm:h-[400px]">
           <HeroSlider
             contentType="image"
-            src="/images/section/relationship.jpg"
+            src="/images/section/Relationship.jpg"
           />
           <div
             className="absolute top-0 left-0 w-full h-full text-[#143B64] text-center z-[6] font-playfair px-4 xs:px-6 sm:px-8 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#e8e4e2]"
