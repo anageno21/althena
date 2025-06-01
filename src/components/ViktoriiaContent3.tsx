@@ -1,3 +1,4 @@
+// src/components/ViktoriiaContent3.tsx
 "use client";
 
 import React, { useRef, useState } from 'react';
@@ -17,13 +18,12 @@ const ViktoriiaContent3: React.FC = () => {
 
   const videoRef = useRef<HTMLIFrameElement>(null);
   const modalVideoRef = useRef<HTMLIFrameElement>(null);
-  const [isMuted, setIsMuted] = useState(true); // Αρχική κατάσταση: χωρίς ήχο
+  const [isMuted, setIsMuted] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
-      // Ενημερώνουμε το src του iframe για να αλλάξουμε την κατάσταση του mute
       videoRef.current.src = isMuted
         ? "https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&rel=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM&mute=1"
         : "https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&rel=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM&mute=0";
@@ -39,12 +39,12 @@ const ViktoriiaContent3: React.FC = () => {
   };
 
   return (
-    <div className="max-w-full mx-auto pt-0 pb-8 mt-0">
-      <div className="grid grid-cols-[40%_20%_40%] gap-2">
-        {/* Πλαίσιο 1 (40%) - Στρογγύλεμα μόνο δεξιά */}
-        <div className="bg-[rgba(142,181,186,0.4)] p-4 rounded-r-lg rounded-l-0">
-          <p className="text-gray-600 text-sm pt-[15px] pr-[15px] pb-[15px] pl-[85px]">
-            <strong className="text-xl">Почему мне можно доверять?</strong>
+    <div className="max-w-full mx-auto pt-0 pb-0 mt-0">
+      <div className="grid grid-cols-1 md:grid-cols-[50%_15%_35%] gap-4">
+        {/* Πλαίσιο 1 (50% σε desktop, 100% σε mobile) - Στρογγύλεμα μόνο δεξιά */}
+        <div className="bg-[rgba(142,181,186,0.4)] p-4 md:rounded-r-lg md:rounded-l-0 rounded-lg">
+          <p className="text-gray-600 text-xs md:text-sm pt-3 pr-3 pb-3 pl-4 md:pl-[85px]">
+            <strong className="text-lg md:text-xl">Почему мне можно доверять?</strong>
             <br /><br />
             У меня высшее психологическое образование и глубокая теоретическая база — за последние годы я прошла более 10 профессиональных обучений, в том числе по гештальт-подходу, КПТ, работе с психотравмой, тревожными и депрессивными состояниями, психосоматике, консультированию пар.
             <br /><br />
@@ -55,8 +55,8 @@ const ViktoriiaContent3: React.FC = () => {
             Каждая история для меня уникальна. И если вы сейчас в поиске — возможно, именно с этой точки начинается ваш путь к себе.
           </p>
         </div>
-        {/* Πλαίσιο 2 (20%) - Βίντεο, στρογγύλεμα σε όλες τις γωνίες */}
-        <div className="bg-[#143B64] p-0 rounded-lg relative overflow-hidden aspect-[9/16]">
+        {/* Πλαίσιο 2 (15% σε desktop, 100% σε mobile) - Βίντεο, στρογγύλεμα σε όλες τις γωνίες */}
+        <div className="bg-[#143B64] p-0 rounded-lg relative overflow-hidden aspect-[9/16] mx-auto w-full max-w-[300px] md:max-w-full">
           <iframe
             ref={videoRef}
             src="https://www.youtube.com/embed/U4o9jcUW5AM?controls=0&rel=0&autoplay=1&loop=1&playlist=U4o9jcUW5AM&mute=1"
@@ -91,8 +91,8 @@ const ViktoriiaContent3: React.FC = () => {
             </button>
           </div>
         </div>
-        {/* Πλαίσιο 3 (40%) - Booking Form, στρογγύλεμα μόνο αριστερά */}
-        <div className="bg-[rgba(237,191,171,0.3)] p-4 rounded-l-lg rounded-r-0">
+        {/* Πλαίσιο 3 (35% σε desktop, 100% σε mobile) - Booking Form, στρογγύλεμα μόνο αριστερά */}
+        <div className="bg-[rgba(237,191,171,0.3)] p-4 md:rounded-l-lg md:rounded-r-0 rounded-lg">
           <BookingForm
             expertName={viktoriia.name}
             availability={viktoriia.availability}
